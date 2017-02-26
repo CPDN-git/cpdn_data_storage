@@ -44,10 +44,12 @@ def get_dirs(ulserver):
 
 	ddirs=ddirs1+ddirs2+ddirs3+ddirs4
 
+    return ddirs
+
 def main():
     # First read in the upload server specified
     parser = argparse.ArgumentParser(description="Find batch data size for upload server")
-    parser.add_argument("ulserver", type=string, help="the upload server")
+    parser.add_argument("ulserver", type=str, help="the upload server")
     args = parser.parse_args()    
 
     ddirs=get_dirs(args.ulserver)
