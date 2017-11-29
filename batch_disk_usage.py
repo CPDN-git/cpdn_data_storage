@@ -43,9 +43,8 @@ def get_dirs(ulserver):
 	ddirs4=glob.glob(out_dir3+'*/batch*')
 
 	ddirs=ddirs1+ddirs2+ddirs3+ddirs4
-
     return ddirs
-
+	
 def main():
     # First read in the upload server specified
     parser = argparse.ArgumentParser(description="Find batch data size for upload server")
@@ -57,14 +56,17 @@ def main():
     batch_size_dict={}
 
     for ddir in ddirs:
-	batchdir=ddir.split("/")[-1]
-	batchno=batchdir.split("batch")[-1].split("_")[-1]
-    	#Default output is in kilobytes - convert to terabytes	
-	batch_size=float(du(ddir))/1.e9
-	print batchno, batch_size
-	batch_size_dict[batchno]=batch_size
+	try:
+		batchdir=ddir.split("/")[-1]
+		batchno=batchdir.split("batch")[-1].split("_")[-1]
+    		#Default output is in kilobytes - convert to terabytes	
+		batch_size=float(du(ddir))/1.e9
+		print batchno, batch_size
+		batch_size_dict[batchno]=batch_size
 
-    write_csv(args.ulserver+"_storage.csv",batch_size_dict)
+    		write_csv(args.ulserver+"_storage.csv",batch_size_dict)
+	except:
+		print "Cannot read folder ",ddir
 
 if __name__ == "__main__":
     main()
