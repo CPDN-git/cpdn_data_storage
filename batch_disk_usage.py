@@ -44,6 +44,10 @@ def get_dirs(ulserver):
 	ddirs5=glob.glob(out_dir4+'*/batch*')
 
 	ddirs=ddirs1+ddirs2+ddirs3+ddirs4+ddirs5
+    if ulserver == "upload6":
+	out_dir1='/storage/boinc/upload/'
+	ddirs=glob.glob(out_dir1+'batch*')
+
     return ddirs
 	
 def main():
