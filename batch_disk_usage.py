@@ -36,14 +36,16 @@ def get_dirs(ulserver):
 	out_dir2='/group_workspaces/jasmin/cssp_china/wp1/lotus/cpdn/'
 	out_dir3='/group_workspaces/jasmin2/cpdn_rapidwatch/disks/rapid-watch1/storage/boinc/upload'
         out_dir4='/group_workspaces/jasmin2/gotham/gotham/cpdn_data/'	
+	out_dir5='/group_workspaces/jasmin2/cpdn_rapidwatch/project_results/'
 	ddirs1=glob.glob(out_dir1+'batch*')
 	ddirs2=[fn for fn in glob.glob(out_dir1+'*/batch*')
                 if not os.path.basename(fn).endswith('.gz')]
 	ddirs3=glob.glob(out_dir2+'*/batch*')
 	ddirs4=glob.glob(out_dir3+'*/batch*')
 	ddirs5=glob.glob(out_dir4+'*/batch*')
+        ddirs6=glob.glob(out_dir5+'*/batch*')
 
-	ddirs=ddirs1+ddirs2+ddirs3+ddirs4+ddirs5
+	ddirs=ddirs1+ddirs2+ddirs3+ddirs4+ddirs5+ddirs6
     if ulserver == "upload6":
 	out_dir1='/storage/boinc/upload/'
 	ddirs=glob.glob(out_dir1+'batch*')
