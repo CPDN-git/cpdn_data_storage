@@ -56,7 +56,7 @@ def main():
     # First read in the upload server specified
     parser = argparse.ArgumentParser(description="Find batch data size for upload server")
     parser.add_argument("ulserver", type=str, help="the upload server")
-    parser.add_argument("script_dir", default="",type=str, help="the script directory")
+    parser.add_argument("--script_dir", default="",type=str, help="the script directory")
     args = parser.parse_args()    
 
     ddirs=get_dirs(args.ulserver)
